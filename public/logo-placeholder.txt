@@ -1,0 +1,4 @@
+# Placeholder for FragSoc logo
+This file should be replaced with the actual FragSoc logo image (logo.png).
+The image should be approximately 300x300 pixels and in PNG format.
+You can download it from the original website or create a new one.

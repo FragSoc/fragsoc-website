@@ -1,0 +1,4 @@
+# Placeholder for FragSmash tournament image
+This file should be replaced with the actual FragSmash tournament image (fragsmash.png).
+The image should be approximately 200x200 pixels and in PNG format.
+You can download it from the original website or create a new one related to Super Smash Bros. tournaments.
