@@ -3,9 +3,9 @@ import Link from 'next/link';
 
 export default function MainSections() {
   return (
-    <div className="bg-black text-white py-20">
+    <div className="bg-black text-white py-3">
       {/* Welcome Section */}
-      <section className="container mx-auto px-4 mb-32">
+      <section className="container mx-auto px-4 mb-20">
         <div className="flex flex-col lg:flex-row items-center gap-16">
           <div className="lg:w-2/3">
             <h2 className="text-5xl font-bold text-white mb-8">Welcome to FragSoc!</h2>
@@ -41,7 +41,7 @@ export default function MainSections() {
       </section>
 
       {/* Three Column Sections */}
-      <section className="py-20">
+      <section className="pb-12">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-12">
             {/* Roses Section */}

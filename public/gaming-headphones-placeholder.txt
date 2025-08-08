@@ -1,4 +1,0 @@
-# Placeholder for gaming headphones background image
-This file should be replaced with the actual gaming headphones background image (gaming-headphones.jpg).
-The image should be a high-quality background image for the hero section.
-You can download it from the original website or use a similar gaming-themed image.
