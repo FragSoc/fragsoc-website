@@ -3,17 +3,14 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - main
-      - builder
+      - '**'  # Build on any branch push
   pull_request:
     branches:
       - main
 
 env:
-  # For Docker Hub, leave REGISTRY empty or use docker.io
-  REGISTRY: docker.io  # or leave empty for Docker Hub
+  REGISTRY: docker.io
   NODE_ENV: production
-  # Add other non-sensitive environment variables here
 
 jobs:
   build-and-push:
@@ -46,6 +43,8 @@ jobs:
           type=ref,event=pr
           type=sha,format=short,prefix=sha-
           type=raw,value=latest,enable={{is_default_branch}}
+        flavor: |
+          latest=false
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v4
@@ -60,3 +59,15 @@ jobs:
         platforms: linux/amd64,linux/arm64
         build-args: |
           NEXT_PUBLIC_FORMSPREE_FORM_ID=${{ secrets.FORMSPREE_FORM_ID }}
+
+    - name: Output build summary
+      run: |
+        echo "## Build Summary" >> $GITHUB_STEP_SUMMARY
+        echo "**Branch:** ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
+        echo "**Commit:** ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+        echo "**Tags built:** ${{ steps.meta.outputs.tags }}" >> $GITHUB_STEP_SUMMARY
+        if [ "${{ github.ref_name }}" = "main" ]; then
+          echo "**✅ Latest tag created for production deployment**" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "**📦 Branch-specific tag created for development**" >> $GITHUB_STEP_SUMMARY
+        fi
