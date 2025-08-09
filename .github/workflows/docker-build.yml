@@ -43,8 +43,6 @@ jobs:
           type=ref,event=pr
           type=sha,format=short,prefix=sha-
           type=raw,value=latest,enable={{is_default_branch}}
-        flavor: |
-          latest=false
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v4
@@ -65,9 +63,12 @@ jobs:
         echo "## Build Summary" >> $GITHUB_STEP_SUMMARY
         echo "**Branch:** ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
         echo "**Commit:** ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+        echo "**Is default branch:** ${{ github.ref == format('refs/heads/{0}', github.event.repository.default_branch) }}" >> $GITHUB_STEP_SUMMARY
         echo "**Tags built:** ${{ steps.meta.outputs.tags }}" >> $GITHUB_STEP_SUMMARY
         if [ "${{ github.ref_name }}" = "main" ]; then
           echo "**✅ Latest tag created for production deployment**" >> $GITHUB_STEP_SUMMARY
+          echo "**🏷️ Tags include: main, latest, sha-commit**" >> $GITHUB_STEP_SUMMARY
         else
           echo "**📦 Branch-specific tag created for development**" >> $GITHUB_STEP_SUMMARY
+          echo "**🏷️ Tags include: ${{ github.ref_name }}, sha-commit**" >> $GITHUB_STEP_SUMMARY
         fi
