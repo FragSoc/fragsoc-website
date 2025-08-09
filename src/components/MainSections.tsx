@@ -58,14 +58,14 @@ export default function MainSections() {
                 Every year, we help the University of York to organise the esports events in
                 Roses, an annual sports tournament against Lancaster University.
               </p>
-              <Link
+                <Link
                 href="https://roseslive.co.uk/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-teal-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-teal-700 transition-all duration-300 shadow-lg hover:shadow-teal-600/25 mt-auto"
-              >
+                className="inline-block bg-red-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-red-700 transition-all duration-300 shadow-lg hover:shadow-red-600/25 mt-auto"
+                >
                 Visit Roses Website
-              </Link>
+                </Link>
             </div>
 
             {/* Frag Smash Section */}
