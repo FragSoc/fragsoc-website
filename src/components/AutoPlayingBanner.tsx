@@ -25,7 +25,7 @@ const slides = [
   },
   {
     id: 3,
-    title: "Join our esports teams!",
+    title: "Join our Esports teams!",
     subtitle: "Interested in competitive gaming? Participate in the NUEL & NSE leagues, community draft tournaments & more with UoY Esports.",
     buttonText: "Find out more",
     buttonLink: "/uoy-esports",
@@ -110,34 +110,48 @@ export default function AutoPlayingBanner() {
         ))}
       </div>
       
-      {/* Navigation Arrows */}
+      {/* Navigation Arrows - Hidden on mobile, visible on desktop */}
       <button
         onClick={goToPrevious}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all duration-300 hover:scale-110 z-10"
+        className="hidden md:block absolute bg-black/70 hover:bg-black/90 text-white p-3 rounded-full transition-colors duration-300 shadow-lg backdrop-blur-sm z-20"
+        style={{ 
+          position: 'absolute',
+          top: '50%',
+          left: '8px',
+          transform: 'translateY(-50%)',
+          willChange: 'auto'
+        }}
         aria-label="Previous slide"
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
         </svg>
       </button>
       
       <button
         onClick={goToNext}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all duration-300 hover:scale-110 z-10"
+        className="hidden md:block absolute bg-black/70 hover:bg-black/90 text-white p-3 rounded-full transition-colors duration-300 shadow-lg backdrop-blur-sm z-20"
+        style={{ 
+          position: 'absolute',
+          top: '50%',
+          right: '8px',
+          transform: 'translateY(-50%)',
+          willChange: 'auto'
+        }}
         aria-label="Next slide"
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
         </svg>
       </button>
       
-      {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
+      {/* Slide Indicators - Bigger on mobile for better touch targets */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-4 z-10">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            className={`w-4 h-4 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
               index === currentSlide 
                 ? 'bg-white scale-125' 
                 : 'bg-white/50 hover:bg-white/75'

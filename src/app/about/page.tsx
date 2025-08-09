@@ -41,7 +41,7 @@ export default function About() {
               <h2 className="text-4xl font-bold text-white mb-16 text-center">What We Do</h2>
               
               {/* Gaming and LAN Events */}
-              <div className="flex flex-col lg:flex-row items-center gap-12 mb-20">
+              <div id="lan-events" className="flex flex-col lg:flex-row items-center gap-12 mb-20">
                 <div className="lg:w-1/2">
                   <h3 className="text-3xl font-bold text-white mb-6">Gaming and LAN Events</h3>
                   <p className="text-xl text-gray-300 mb-6 leading-relaxed">
@@ -74,7 +74,7 @@ export default function About() {
               </div>
 
               {/* Society Socials */}
-              <div className="flex flex-col lg:flex-row-reverse items-center gap-12 mb-20">
+              <div id="socials" className="flex flex-col lg:flex-row-reverse items-center gap-12 mb-20">
                 <div className="lg:w-1/2">
                   <h3 className="text-3xl font-bold text-white mb-6">Society Socials</h3>
                   <p className="text-xl text-gray-300 mb-6 leading-relaxed">
@@ -132,7 +132,7 @@ export default function About() {
               </div>
 
               {/* Twitch Streaming */}
-              <div className="flex flex-col lg:flex-row-reverse items-center gap-12 mb-20">
+              <div id="twitch-streaming" className="flex flex-col lg:flex-row-reverse items-center gap-12 mb-20">
                 <div className="lg:w-1/2">
                   <h3 className="text-3xl font-bold text-white mb-6">Twitch Streaming</h3>
                   <p className="text-xl text-gray-300 mb-6 leading-relaxed">

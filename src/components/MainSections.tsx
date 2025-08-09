@@ -45,8 +45,8 @@ export default function MainSections() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-12">
             {/* Roses Section */}
-            <div className="bg-gray-900 rounded-2xl p-10 text-center border border-gray-800 hover:border-red-500 transition-all duration-300 flex flex-col h-full">
-              <h3 className="text-3xl font-bold text-red-400 mb-8">Roses</h3>
+            <div className="bg-gray-900 rounded-2xl p-10 text-center border border-gray-800 hover:border-gray-500 transition-all duration-300 flex flex-col h-full">
+              <h3 className="text-3xl font-bold text-gray-400 mb-8">Roses</h3>
               <Image
                 src="/roses.png"
                 alt="Roses Tournament"
@@ -62,15 +62,15 @@ export default function MainSections() {
                 href="https://roseslive.co.uk/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-red-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-red-700 transition-all duration-300 shadow-lg hover:shadow-red-600/25 mt-auto"
+                className="inline-block bg-gray-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-gray-700 transition-all duration-300 shadow-lg hover:shadow-gray-600/25 mt-auto"
                 >
                 Visit Roses Website
                 </Link>
             </div>
 
             {/* Frag Smash Section */}
-            <div className="bg-gray-900 rounded-2xl p-10 text-center border border-gray-800 hover:border-green-500 transition-all duration-300 flex flex-col h-full">
-              <h3 className="text-3xl font-bold text-green-400 mb-8">Frag Smash</h3>
+            <div className="bg-gray-900 rounded-2xl p-10 text-center border border-gray-800 hover:border-red-500 transition-all duration-300 flex flex-col h-full">
+              <h3 className="text-3xl font-bold text-red-400 mb-8">Frag Smash</h3>
               <Image
                 src="/fragsmash.png"
                 alt="Frag Smash Tournament"
@@ -86,7 +86,7 @@ export default function MainSections() {
                 href="https://discord.gg/A9BWHvHFVM"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-purple-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-purple-700 transition-all duration-300 shadow-lg hover:shadow-purple-600/25 mt-auto"
+                className="inline-block bg-red-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-red-700 transition-all duration-300 shadow-lg hover:shadow-red-600/25 mt-auto"
               >
                 Join the FragSmash Discord
               </Link>
