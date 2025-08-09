@@ -141,7 +141,7 @@ export default function Committee() {
                   Join Our Discord
                 </a>
                 <a
-                  href="https://yusu.org/activities/view/fragsoc"
+                  href="https://yorksu.org/activities/view/fragsoc"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-green-600 text-white font-semibold py-4 px-10 rounded-full hover:bg-green-700 transition-all duration-300 text-lg shadow-lg hover:shadow-green-600/25"

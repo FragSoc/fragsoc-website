@@ -30,13 +30,13 @@ export default function Header() {
             <Link href="/esports" className="text-gray-300 hover:text-white transition-colors text-lg">
               Esports
             </Link>
-            <Link href="/committee" className="text-gray-300 hover:text-white transition-colors text-lg">
-              Committee
+            <Link href="/contact" className="text-gray-300 hover:text-white transition-colors text-lg">
+              Contact Us
             </Link>
           </nav>
           
           <Link
-            href="https://yusu.org/activities/view/fragsoc"
+            href="https://yorksu.org/activities/view/fragsoc"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-indigo-600 text-white px-8 py-3 rounded-full hover:bg-indigo-700 transition-colors font-semibold"
