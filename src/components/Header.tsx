@@ -35,77 +35,77 @@ export default function Header() {
   }, [dropdownTimeout]);
 
   return (
-    <header className="bg-black border-b border-gray-800">
-      <div className="container mx-auto px-4 py-6">
+    <header className="bg-black border-b border-gray-800 transition-all duration-300 ease-in-out">
+      <div className="container mx-auto px-4 py-6 transition-all duration-300 ease-in-out">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-4">
+          <Link href="/" className="flex items-center space-x-3 md:space-x-4 transition-all duration-300 ease-in-out">
             <Image
               src="/logo.png"
               alt="FragSoc Logo"
               width={50}
               height={50}
-              className="rounded-full"
+              className="rounded-full transition-all duration-300 ease-in-out"
             />
-            <div>
-              <h1 className="text-2xl font-bold text-white">FragSoc</h1>
-              <p className="text-sm text-gray-400">University of York's Gaming and Esports Society</p>
+            <div className="transition-all duration-300 ease-in-out">
+              <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white transition-all duration-300 ease-in-out">FragSoc</h1>
+              <p className="text-xs md:text-sm text-gray-400 hidden lg:block transition-all duration-300 ease-in-out">University of York's Gaming and Esports Society</p>
             </div>
           </Link>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            <Link href="/" className="text-gray-300 hover:text-white transition-colors text-lg">
+          <nav className="hidden lg:flex space-x-6 xl:space-x-8 transition-all duration-300 ease-in-out">
+            <Link href="/" className="text-gray-300 hover:text-white transition-all duration-300 ease-in-out text-base lg:text-lg">
               Home
             </Link>
             
             {/* About Us Dropdown */}
             <div 
-              className="relative"
+              className="relative transition-all duration-300 ease-in-out"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
-              <Link href="/about" className="text-gray-300 hover:text-white transition-colors text-lg flex items-center">
+              <Link href="/about" className="text-gray-300 hover:text-white transition-all duration-300 ease-in-out text-base lg:text-lg flex items-center">
                 About Us
-                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 ml-1 transition-transform duration-300 ease-in-out" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </Link>
               
               {isAboutDropdownOpen && (
-                <div className="absolute top-full left-0 mt-1 w-56 bg-gray-900 border border-gray-700 rounded-lg shadow-lg py-3 z-50">
+                <div className="absolute top-full left-0 mt-1 w-56 bg-gray-900 border border-gray-700 rounded-lg shadow-lg py-3 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
                   <a
                     href="/about#lan-events"
-                    className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 transition-colors text-sm"
+                    className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 transition-all duration-200 ease-in-out text-sm"
                   >
                     LAN Events
                   </a>
                   <a
                     href="/about#socials"
-                    className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 transition-colors text-sm"
+                    className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 transition-all duration-200 ease-in-out text-sm"
                   >
                     Socials
                   </a>
                   <a
                     href="/about#twitch-streaming"
-                    className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 transition-colors text-sm"
+                    className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 transition-all duration-200 ease-in-out text-sm"
                   >
                     Twitch Streaming
                   </a>
                   <Link
                     href="/committee"
-                    className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 transition-colors text-sm"
+                    className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 transition-all duration-200 ease-in-out text-sm"
                   >
                     Committee
                   </Link>
                   <Link
                     href="/faq"
-                    className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 transition-colors text-sm"
+                    className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 transition-all duration-200 ease-in-out text-sm"
                   >
                     FAQ
                   </Link>
                   <Link
                     href="/fanart"
-                    className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 transition-colors text-sm"
+                    className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 transition-all duration-200 ease-in-out text-sm"
                   >
                     Fanart
                   </Link>
@@ -113,20 +113,20 @@ export default function Header() {
               )}
             </div>
             
-            <Link href="/esports" className="text-gray-300 hover:text-white transition-colors text-lg">
+            <Link href="/esports" className="text-gray-300 hover:text-white transition-all duration-300 ease-in-out text-base lg:text-lg">
               Esports
             </Link>
-            <Link href="/contact" className="text-gray-300 hover:text-white transition-colors text-lg">
+            <Link href="/contact" className="text-gray-300 hover:text-white transition-all duration-300 ease-in-out text-base lg:text-lg">
               Contact
             </Link>
           </nav>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-white p-2"
+            className="lg:hidden text-white p-2 rounded-lg hover:bg-gray-800 transition-all duration-300 ease-in-out"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className={`w-6 h-6 transition-transform duration-300 ease-in-out ${isMenuOpen ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
@@ -135,7 +135,7 @@ export default function Header() {
             href={URLS.YORKSU_FRAGSOC}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:inline-block bg-indigo-600 text-white px-8 py-3 rounded-full hover:bg-indigo-700 transition-colors font-semibold"
+            className="hidden lg:inline-block bg-indigo-600 text-white px-6 lg:px-8 py-2 lg:py-3 rounded-full hover:bg-indigo-700 hover:scale-105 transition-all duration-300 ease-in-out font-semibold text-sm lg:text-base shadow-lg hover:shadow-xl"
           >
             {TEXT.MEMBERSHIP_GET}
           </Link>
@@ -143,11 +143,11 @@ export default function Header() {
 
         {/* Mobile Navigation Menu */}
         {isMenuOpen && (
-          <nav className="md:hidden mt-6 pb-6 border-t border-gray-800 pt-6">
+          <nav className="lg:hidden mt-6 pb-6 border-t border-gray-800 pt-6 animate-in slide-in-from-top duration-300 ease-in-out">
             <div className="flex flex-col space-y-4">
               <Link 
                 href="/" 
-                className="text-gray-300 hover:text-white transition-colors text-lg py-2"
+                className="text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg px-3 py-2 transition-all duration-300 ease-in-out text-lg"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Home
@@ -157,11 +157,11 @@ export default function Header() {
               <div>
                 <button
                   onClick={() => setIsMobileAboutOpen(!isMobileAboutOpen)}
-                  className="flex items-center justify-between w-full text-gray-300 hover:text-white transition-colors text-lg py-2"
+                  className="flex items-center justify-between w-full text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg px-3 py-2 transition-all duration-300 ease-in-out text-lg"
                 >
                   About Us
                   <svg 
-                    className={`w-4 h-4 transform transition-transform ${isMobileAboutOpen ? 'rotate-180' : ''}`} 
+                    className={`w-4 h-4 transform transition-transform duration-300 ease-in-out ${isMobileAboutOpen ? 'rotate-180' : ''}`} 
                     fill="none" 
                     stroke="currentColor" 
                     viewBox="0 0 24 24"
@@ -171,52 +171,52 @@ export default function Header() {
                 </button>
                 
                 {isMobileAboutOpen && (
-                  <div className="pl-4 space-y-2 mt-2">
+                  <div className="pl-4 space-y-2 mt-2 animate-in slide-in-from-top duration-200 ease-in-out">
                     <Link
                       href="/about"
-                      className="block text-gray-400 hover:text-white transition-colors py-1"
+                      className="block text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg px-3 py-1 transition-all duration-200 ease-in-out"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       About FragSoc
                     </Link>
                     <a 
                       href="/about#lan-events" 
-                      className="block text-gray-400 hover:text-white transition-colors py-1"
+                      className="block text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg px-3 py-1 transition-all duration-200 ease-in-out"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       LAN Events
                     </a>
                     <a 
                       href="/about#socials" 
-                      className="block text-gray-400 hover:text-white transition-colors py-1"
+                      className="block text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg px-3 py-1 transition-all duration-200 ease-in-out"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Socials
                     </a>
                     <a 
                       href="/about#twitch-streaming" 
-                      className="block text-gray-400 hover:text-white transition-colors py-1"
+                      className="block text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg px-3 py-1 transition-all duration-200 ease-in-out"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Twitch Streaming
                     </a>
                     <Link 
                       href="/committee" 
-                      className="block text-gray-400 hover:text-white transition-colors py-1"
+                      className="block text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg px-3 py-1 transition-all duration-200 ease-in-out"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Committee
                     </Link>
                     <Link 
                       href="/faq" 
-                      className="block text-gray-400 hover:text-white transition-colors py-1"
+                      className="block text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg px-3 py-1 transition-all duration-200 ease-in-out"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       FAQ
                     </Link>
                     <Link 
                       href="/fanart" 
-                      className="block text-gray-400 hover:text-white transition-colors py-1"
+                      className="block text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg px-3 py-1 transition-all duration-200 ease-in-out"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Fanart
@@ -227,14 +227,14 @@ export default function Header() {
               
               <Link 
                 href="/esports" 
-                className="text-gray-300 hover:text-white transition-colors text-lg py-2"
+                className="text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg px-3 py-2 transition-all duration-300 ease-in-out text-lg"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Esports
               </Link>
               <Link 
                 href="/contact" 
-                className="text-gray-300 hover:text-white transition-colors text-lg py-2"
+                className="text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg px-3 py-2 transition-all duration-300 ease-in-out text-lg"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contact
@@ -243,7 +243,7 @@ export default function Header() {
                 href={URLS.YORKSU_FRAGSOC}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-indigo-600 text-white px-6 py-3 rounded-full hover:bg-indigo-700 transition-colors font-semibold text-center mt-4"
+                className="bg-indigo-600 text-white px-6 py-3 rounded-full hover:bg-indigo-700 hover:scale-105 transition-all duration-300 ease-in-out font-semibold text-center mt-4 shadow-lg hover:shadow-xl"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {TEXT.MEMBERSHIP_GET}

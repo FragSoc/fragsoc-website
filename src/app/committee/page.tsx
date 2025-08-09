@@ -8,7 +8,7 @@ const committeeRoles = [
     role: "President",
     description: "Manages the society. Oversees everything. Makes sure everything gets done and that everyone on the committee has something to do. Takes ultimate responsibility for everything FragSoc does, and generally delegates.",
     color: "from-blue-500 to-purple-600",
-    borderColor: "border-blue-500",
+    hoverBorder: "hover:border-blue-500",
     shadowColor: "shadow-blue-600/25",
     members: [
       {
@@ -21,7 +21,7 @@ const committeeRoles = [
     role: "Secretary",
     description: "Deals with all paperwork and booking for the society and society events. Liaises with YorkSU, the University, and other relevant organisations to ensure smooth running.",
     color: "from-purple-500 to-pink-600",
-    borderColor: "border-purple-500",
+    hoverBorder: "hover:border-purple-500",
     shadowColor: "shadow-purple-600/25",
     members: [
       {
@@ -34,7 +34,7 @@ const committeeRoles = [
     role: "Treasurer",
     description: "Handles all of the society's finances. Applies for grants from YorkSU annually, handles payment for event admissions, budget plans for committee ideas, pays cash in to our bank account and guards the petty cash tin.",
     color: "from-green-500 to-blue-600",
-    borderColor: "border-green-500",
+    hoverBorder: "hover:border-green-500",
     shadowColor: "shadow-green-600/25",
     members: [
       {
@@ -47,7 +47,7 @@ const committeeRoles = [
     role: "Social Secretary",
     description: "Organises socials and events run outside of LAN and competitive environments.",
     color: "from-indigo-500 to-purple-600",
-    borderColor: "border-indigo-500",
+    hoverBorder: "hover:border-indigo-500",
     shadowColor: "shadow-indigo-600/25",
     members: [
       {
@@ -60,7 +60,7 @@ const committeeRoles = [
     role: "Esports Officer",
     description: "Monitors and maintains official FragSoc UoY Esports teams. Arranges streaming of large event tournaments and the Roses against Lancaster. Co-ordinates the Roses event with Lancaster University. Keeps up to date with all areas of esports over multiple games.",
     color: "from-red-500 to-orange-600",
-    borderColor: "border-red-500",
+    hoverBorder: "hover:border-red-500",
     shadowColor: "shadow-red-600/25",
     members: [
       {
@@ -77,7 +77,7 @@ const committeeRoles = [
     role: "Smash Tournaments Officer",
     description: "Organises and runs weekly smash meet-ups as well as admining the larger Smash tournaments with 100+ players.",
     color: "from-yellow-500 to-red-600",
-    borderColor: "border-yellow-500",
+    hoverBorder: "hover:border-yellow-500",
     shadowColor: "shadow-yellow-600/25",
     members: [
       {
@@ -98,7 +98,7 @@ const committeeRoles = [
     role: "FGC Coordinator",
     description: "Coordinates Fighting Game Community events and manages FGC tournaments and competitions.",
     color: "from-orange-500 to-red-600",
-    borderColor: "border-orange-500",
+    hoverBorder: "hover:border-orange-500",
     shadowColor: "shadow-orange-600/25",
     members: [
       {
@@ -115,7 +115,7 @@ const committeeRoles = [
     role: "Events Officer",
     description: "Decides the games and activities to be run at LANs and other gaming events. Organises rules and teams, and shouts at people to get on the server.",
     color: "from-cyan-500 to-blue-600",
-    borderColor: "border-cyan-500",
+    hoverBorder: "hover:border-cyan-500",
     shadowColor: "shadow-cyan-600/25",
     members: [
       {
@@ -128,7 +128,7 @@ const committeeRoles = [
     role: "Infrastructure Officer",
     description: "Handles the hardware/technological side of running tournaments at events. Sets up servers for tournaments and organised games.",
     color: "from-gray-500 to-blue-600",
-    borderColor: "border-gray-500",
+    hoverBorder: "hover:border-gray-500",
     shadowColor: "shadow-gray-600/25",
     members: [
       {
@@ -145,7 +145,7 @@ const committeeRoles = [
     role: "Stream Manager",
     description: "Manages the streams for any FragSoc event being broadcast live, as well as creating and updating the schedule for members to use the Twitch account. Creates general graphics & alerts for FragSoc streams, as well as custom graphics and overlays for bigger events.",
     color: "from-pink-500 to-purple-600",
-    borderColor: "border-pink-500",
+    hoverBorder: "hover:border-pink-500",
     shadowColor: "shadow-pink-600/25",
     members: [
       {
@@ -162,7 +162,7 @@ const committeeRoles = [
     role: "Press and Publication",
     description: "Arranges publicity and advertisements for the society. Manages the society's Facebook and other social media accounts.",
     color: "from-teal-500 to-green-600",
-    borderColor: "border-teal-500",
+    hoverBorder: "hover:border-teal-500",
     shadowColor: "shadow-teal-600/25",
     members: [
       {
@@ -217,8 +217,8 @@ export default function Committee() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mb-16">
               {committeeRoles.map((role, index) => (
-                <div key={index} className={`bg-gray-900 rounded-2xl shadow-2xl p-10 text-center border border-gray-800 hover:${role.borderColor} transition-all duration-300`}>
-                  <div className={`w-28 h-28 bg-gradient-to-r ${role.color} rounded-full mx-auto mb-6 flex items-center justify-center text-white font-bold text-2xl`}>
+                <div key={index} className={`bg-gray-900 rounded-2xl shadow-2xl p-10 text-center border border-gray-800 ${role.hoverBorder} hover:shadow-xl hover:scale-105 transition-all duration-300`}>
+                  <div className={`w-28 h-28 bg-gradient-to-r ${role.color} rounded-full mx-auto mb-6 flex items-center justify-center text-white font-bold text-2xl shadow-lg`}>
                     {role.role.split(' ').map(word => word[0]).join('').slice(0, 2)}
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-2">{role.role}</h3>
