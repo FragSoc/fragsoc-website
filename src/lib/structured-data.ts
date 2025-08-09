@@ -36,7 +36,7 @@ export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "FragSoc - University of York Gaming Society",
-  "url": process.env.NEXT_PUBLIC_BASE_URL || "https://fragsoc.com",
+  "url": process.env.NEXT_PUBLIC_BASE_URL || "https://fragsoc.co.uk",
   "description": "Official website of FragSoc, the University of York's gaming and esports society",
   "publisher": {
     "@type": "Organization",
@@ -46,7 +46,7 @@ export const websiteSchema = {
     "@type": "SearchAction",
     "target": {
       "@type": "EntryPoint",
-      "urlTemplate": `${process.env.NEXT_PUBLIC_BASE_URL || "https://fragsoc.com"}?q={search_term_string}`
+      "urlTemplate": `${process.env.NEXT_PUBLIC_BASE_URL || "https://fragsoc.co.uk"}?q={search_term_string}`
     },
   }
 }
