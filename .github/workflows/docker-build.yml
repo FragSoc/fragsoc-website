@@ -12,6 +12,8 @@ on:
 env:
   REGISTRY: ${{ secrets.DOCKER_REGISTRY }}
   IMAGE_NAME: fragsoc-website
+  NODE_ENV: production
+  # Add other non-sensitive environment variables here
 
 jobs:
   build-and-push:
