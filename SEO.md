@@ -44,7 +44,7 @@ Add these to your `.env.local` file:
 
 ```bash
 # Required for SEO
-NEXT_PUBLIC_BASE_URL=https://fragsoc.com
+NEXT_PUBLIC_BASE_URL=https://fragsoc.co.uk
 
 # Optional for Google Search Console
 NEXT_PUBLIC_GOOGLE_VERIFICATION=your_verification_code
