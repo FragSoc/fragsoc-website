@@ -3,17 +3,14 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - main
-      - builder
+      - '**'  # Build on any branch push
   pull_request:
     branches:
       - main
 
 env:
-  # For Docker Hub, leave REGISTRY empty or use docker.io
-  REGISTRY: docker.io  # or leave empty for Docker Hub
+  REGISTRY: docker.io
   NODE_ENV: production
-  # Add other non-sensitive environment variables here
 
 jobs:
   build-and-push:
@@ -60,3 +57,18 @@ jobs:
         platforms: linux/amd64,linux/arm64
         build-args: |
           NEXT_PUBLIC_FORMSPREE_FORM_ID=${{ secrets.FORMSPREE_FORM_ID }}
+
+    - name: Output build summary
+      run: |
+        echo "## Build Summary" >> $GITHUB_STEP_SUMMARY
+        echo "**Branch:** ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
+        echo "**Commit:** ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+        echo "**Is default branch:** ${{ github.ref == format('refs/heads/{0}', github.event.repository.default_branch) }}" >> $GITHUB_STEP_SUMMARY
+        echo "**Tags built:** ${{ steps.meta.outputs.tags }}" >> $GITHUB_STEP_SUMMARY
+        if [ "${{ github.ref_name }}" = "main" ]; then
+          echo "**✅ Latest tag created for production deployment**" >> $GITHUB_STEP_SUMMARY
+          echo "**🏷️ Tags include: main, latest, sha-commit**" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "**📦 Branch-specific tag created for development**" >> $GITHUB_STEP_SUMMARY
+          echo "**🏷️ Tags include: ${{ github.ref_name }}, sha-commit**" >> $GITHUB_STEP_SUMMARY
+        fi
