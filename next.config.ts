@@ -45,7 +45,6 @@ const nextConfig: NextConfig = {
             key: 'X-XSS-Protection',
             value: '1; mode=block',
           },
-          {
             key: 'Referrer-Policy',
             value: 'origin-when-cross-origin',
           },
