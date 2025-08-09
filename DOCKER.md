@@ -10,15 +10,12 @@
 
 Add these secrets to your GitHub repository (**Settings** → **Secrets and variables** → **Actions**):
 
-### Docker Registry Secrets
-- **`DOCKER_REGISTRY`**: Your private registry URL
-  - Examples: `registry.digitalocean.com`, `ghcr.io`, `your-domain.com:5000`
-  - **Required**: Used in both build and deploy workflows
-- **`DOCKER_USERNAME`**: Your private registry username
-  - The username for authenticating with your Docker registry
-- **`DOCKER_PASSWORD`**: Your private registry password/token
-  - API token or password for registry authentication
-  - For security, use an API token rather than your account password when possible
+### Docker Hub Secrets
+- **`DOCKER_USERNAME`**: Your Docker Hub username
+  - This will be used as part of the image name: `username/fragsoc-website`
+- **`DOCKER_PASSWORD`**: Your Docker Hub password or access token
+  - **Recommended**: Use an access token instead of your password
+  - Generate at: [Docker Hub → Account Settings → Security](https://hub.docker.com/settings/security)
 
 ### Application Secrets
 - **`FORMSPREE_FORM_ID`**: Your Formspree form ID (e.g., `xpwlkawk`)
@@ -32,7 +29,7 @@ Add these secrets to your GitHub repository (**Settings** → **Secrets and vari
 5. Enter the secret name and value
 6. Click **Add secret**
 
-**⚠️ Important**: All these secrets are required for the workflows to function properly.
+**⚠️ Important**: Only these 3 secrets are required for Docker Hub deployment.
 
 ## Workflow Overview
 
@@ -76,8 +73,8 @@ docker-compose down
 
 ### Manual deployment on server:
 ```bash
-# Pull latest image
-docker pull your-private-registry.com/fragsoc-website:latest
+# Pull latest image (replace 'your-username' with your Docker Hub username)
+docker pull your-username/fragsoc-website:latest
 
 # Stop existing container
 docker stop fragsoc-website-prod || true
@@ -88,7 +85,7 @@ docker run -d \
   --name fragsoc-website-prod \
   --restart unless-stopped \
   -p 3000:3000 \
-  your-private-registry.com/fragsoc-website:latest
+  your-username/fragsoc-website:latest
 ```
 
 ## Configuration
@@ -135,16 +132,14 @@ docker exec -it fragsoc-website-prod sh
 ## Quick Reference
 
 ### Required GitHub Secrets Checklist
-- ✅ `DOCKER_REGISTRY` - Your private registry URL
-- ✅ `DOCKER_USERNAME` - Registry username  
-- ✅ `DOCKER_PASSWORD` - Registry password/token
+- ✅ `DOCKER_USERNAME` - Your Docker Hub username
+- ✅ `DOCKER_PASSWORD` - Docker Hub password/access token
 - ✅ `FORMSPREE_FORM_ID` - Formspree form ID
 
-### Common Registry Examples
-| Provider | Registry URL | Notes |
+### Registry Information
+| Provider | Image Format | Notes |
 |----------|--------------|-------|
-| Docker Hub | `docker.io` or leave empty | Default registry |
-| GitHub Container Registry | `ghcr.io` | Free for public repos |
-| DigitalOcean | `registry.digitalocean.com` | Managed registry service |
-| AWS ECR | `<account-id>.dkr.ecr.<region>.amazonaws.com` | Replace account-id and region |
-| Self-hosted | `your-domain.com:5000` | Custom registry setup |
+| **Docker Hub** | `username/fragsoc-website` | **Current setup** - Free public registry |
+| GitHub Container Registry | `ghcr.io/username/fragsoc-website` | Alternative option |
+| DigitalOcean | `registry.digitalocean.com/your-registry/fragsoc-website` | Paid private registry |
+| AWS ECR | `<account-id>.dkr.ecr.<region>.amazonaws.com/fragsoc-website` | AWS managed registry |
