@@ -27,7 +27,7 @@ ENV NEXT_PUBLIC_FORMSPREE_FORM_ID=${NEXT_PUBLIC_FORMSPREE_FORM_ID}
 ENV NEXT_TELEMETRY_DISABLED 1
 
 # Build the application (skip linting during Docker build)
-RUN npm run build
+RUN NODE_OPTIONS='--max-old-space-size=4096' npm run build
 
 # Production image, copy all the files and run next
 FROM base AS runner
