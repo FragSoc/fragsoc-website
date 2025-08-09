@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { URLS, TEXT } from '@/constants';
 
 export default function HeroSection() {
   return (

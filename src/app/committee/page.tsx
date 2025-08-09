@@ -2,6 +2,177 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
 
+// Committee data - easy to edit and maintain
+const committeeRoles = [
+  {
+    role: "President",
+    description: "Manages the society. Oversees everything. Makes sure everything gets done and that everyone on the committee has something to do. Takes ultimate responsibility for everything FragSoc does, and generally delegates.",
+    color: "from-blue-500 to-purple-600",
+    borderColor: "border-blue-500",
+    shadowColor: "shadow-blue-600/25",
+    members: [
+      {
+        name: "Aaron 'Baldnut' Heald",
+        image: "/logo.png" // Replace with actual photo when available
+      }
+    ]
+  },
+  {
+    role: "Secretary",
+    description: "Deals with all paperwork and booking for the society and society events. Liaises with YorkSU, the University, and other relevant organisations to ensure smooth running.",
+    color: "from-purple-500 to-pink-600",
+    borderColor: "border-purple-500",
+    shadowColor: "shadow-purple-600/25",
+    members: [
+      {
+        name: "Charlie Greasby",
+        image: "/logo.png" // Replace with actual photo when available
+      }
+    ]
+  },
+  {
+    role: "Treasurer",
+    description: "Handles all of the society's finances. Applies for grants from YorkSU annually, handles payment for event admissions, budget plans for committee ideas, pays cash in to our bank account and guards the petty cash tin.",
+    color: "from-green-500 to-blue-600",
+    borderColor: "border-green-500",
+    shadowColor: "shadow-green-600/25",
+    members: [
+      {
+        name: "Hamish Parker",
+        image: "/logo.png" // Replace with actual photo when available
+      }
+    ]
+  },
+  {
+    role: "Social Secretary",
+    description: "Organises socials and events run outside of LAN and competitive environments.",
+    color: "from-indigo-500 to-purple-600",
+    borderColor: "border-indigo-500",
+    shadowColor: "shadow-indigo-600/25",
+    members: [
+      {
+        name: "William Pym",
+        image: "/logo.png" // Replace with actual photo when available
+      }
+    ]
+  },
+  {
+    role: "Esports Officer",
+    description: "Monitors and maintains official FragSoc UoY Esports teams. Arranges streaming of large event tournaments and the Roses against Lancaster. Co-ordinates the Roses event with Lancaster University. Keeps up to date with all areas of esports over multiple games.",
+    color: "from-red-500 to-orange-600",
+    borderColor: "border-red-500",
+    shadowColor: "shadow-red-600/25",
+    members: [
+      {
+        name: "James Sutton",
+        image: "/logo.png" // Replace with actual photo when available
+      },
+      {
+        name: "Aryaman Marathe",
+        image: "/logo.png" // Replace with actual photo when available
+      }
+    ]
+  },
+  {
+    role: "Smash Tournaments Officer",
+    description: "Organises and runs weekly smash meet-ups as well as admining the larger Smash tournaments with 100+ players.",
+    color: "from-yellow-500 to-red-600",
+    borderColor: "border-yellow-500",
+    shadowColor: "shadow-yellow-600/25",
+    members: [
+      {
+        name: "Charlie Greasby",
+        image: "/logo.png" // Replace with actual photo when available
+      },
+      {
+        name: "Hamish Parker",
+        image: "/logo.png" // Replace with actual photo when available
+      },
+      {
+        name: "James Orwin",
+        image: "/logo.png" // Replace with actual photo when available
+      }
+    ]
+  },
+  {
+    role: "FGC Coordinator",
+    description: "Coordinates Fighting Game Community events and manages FGC tournaments and competitions.",
+    color: "from-orange-500 to-red-600",
+    borderColor: "border-orange-500",
+    shadowColor: "shadow-orange-600/25",
+    members: [
+      {
+        name: "Charlie Greasby",
+        image: "/logo.png" // Replace with actual photo when available
+      },
+      {
+        name: "Phillip Hatt",
+        image: "/logo.png" // Replace with actual photo when available
+      }
+    ]
+  },
+  {
+    role: "Events Officer",
+    description: "Decides the games and activities to be run at LANs and other gaming events. Organises rules and teams, and shouts at people to get on the server.",
+    color: "from-cyan-500 to-blue-600",
+    borderColor: "border-cyan-500",
+    shadowColor: "shadow-cyan-600/25",
+    members: [
+      {
+        name: "Phillip Hatt",
+        image: "/logo.png" // Replace with actual photo when available
+      }
+    ]
+  },
+  {
+    role: "Infrastructure Officer",
+    description: "Handles the hardware/technological side of running tournaments at events. Sets up servers for tournaments and organised games.",
+    color: "from-gray-500 to-blue-600",
+    borderColor: "border-gray-500",
+    shadowColor: "shadow-gray-600/25",
+    members: [
+      {
+        name: "Ren Herring",
+        image: "/logo.png" // Replace with actual photo when available
+      },
+      {
+        name: "Evelyn Gravett",
+        image: "/logo.png" // Replace with actual photo when available
+      }
+    ]
+  },
+  {
+    role: "Stream Manager",
+    description: "Manages the streams for any FragSoc event being broadcast live, as well as creating and updating the schedule for members to use the Twitch account. Creates general graphics & alerts for FragSoc streams, as well as custom graphics and overlays for bigger events.",
+    color: "from-pink-500 to-purple-600",
+    borderColor: "border-pink-500",
+    shadowColor: "shadow-pink-600/25",
+    members: [
+      {
+        name: "Ren Herring",
+        image: "/logo.png" // Replace with actual photo when available
+      },
+      {
+        name: "Evelyn Gravett",
+        image: "/logo.png" // Replace with actual photo when available
+      }
+    ]
+  },
+  {
+    role: "Press and Publication",
+    description: "Arranges publicity and advertisements for the society. Manages the society's Facebook and other social media accounts.",
+    color: "from-teal-500 to-green-600",
+    borderColor: "border-teal-500",
+    shadowColor: "shadow-teal-600/25",
+    members: [
+      {
+        name: "Dorothy Lo",
+        image: "/logo.png" // Replace with actual photo when available
+      }
+    ]
+  }
+];
+
 export default function Committee() {
   return (
     <div className="min-h-screen bg-black">
@@ -45,83 +216,31 @@ export default function Committee() {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mb-16">
-              <div className="bg-gray-900 rounded-2xl shadow-2xl p-10 text-center border border-gray-800 hover:border-blue-500 transition-all duration-300">
-                <div className="w-28 h-28 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mx-auto mb-6 flex items-center justify-center">
-                  <span className="text-white font-bold text-3xl">P</span>
+              {committeeRoles.map((role, index) => (
+                <div key={index} className={`bg-gray-900 rounded-2xl shadow-2xl p-10 text-center border border-gray-800 hover:${role.borderColor} transition-all duration-300`}>
+                  <div className={`w-28 h-28 bg-gradient-to-r ${role.color} rounded-full mx-auto mb-6 flex items-center justify-center text-white font-bold text-2xl`}>
+                    {role.role.split(' ').map(word => word[0]).join('').slice(0, 2)}
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-2">{role.role}</h3>
+                  <div className="mb-4">
+                    {role.members.map((member, memberIndex) => (
+                      <div key={memberIndex} className="flex items-center justify-center mb-2">
+                        <Image
+                          src={member.image}
+                          alt={`${member.name} - ${role.role}`}
+                          width={40}
+                          height={40}
+                          className="w-10 h-10 rounded-full object-cover border-2 border-gray-600 mr-3"
+                        />
+                        <span className="text-lg font-semibold text-gray-300">{member.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-gray-300 mb-6 text-lg leading-relaxed">
+                    {role.description}
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">President</h3>
-                <p className="text-gray-300 mb-6 text-lg leading-relaxed">
-                  Overall leadership and coordination of society activities, events, and strategic direction.
-                </p>
-                <div className="text-sm text-gray-400">
-                  Contact via Discord for general inquiries
-                </div>
-              </div>
-
-              <div className="bg-gray-900 rounded-2xl shadow-2xl p-10 text-center border border-gray-800 hover:border-green-500 transition-all duration-300">
-                <div className="w-28 h-28 bg-gradient-to-r from-green-500 to-blue-600 rounded-full mx-auto mb-6 flex items-center justify-center">
-                  <span className="text-white font-bold text-3xl">T</span>
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Treasurer</h3>
-                <p className="text-gray-300 mb-6 text-lg leading-relaxed">
-                  Manages society finances, budgets for events, and handles membership fees and sponsorships.
-                </p>
-                <div className="text-sm text-gray-400">
-                  Contact for financial and membership matters
-                </div>
-              </div>
-
-              <div className="bg-gray-900 rounded-2xl shadow-2xl p-10 text-center border border-gray-800 hover:border-purple-500 transition-all duration-300">
-                <div className="w-28 h-28 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full mx-auto mb-6 flex items-center justify-center">
-                  <span className="text-white font-bold text-3xl">S</span>
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Secretary</h3>
-                <p className="text-gray-300 mb-6 text-lg leading-relaxed">
-                  Handles communications, meeting minutes, and administrative tasks for the society.
-                </p>
-                <div className="text-sm text-gray-400">
-                  Contact for administrative questions
-                </div>
-              </div>
-
-              <div className="bg-gray-900 rounded-2xl shadow-2xl p-10 text-center border border-gray-800 hover:border-red-500 transition-all duration-300">
-                <div className="w-28 h-28 bg-gradient-to-r from-red-500 to-orange-600 rounded-full mx-auto mb-6 flex items-center justify-center">
-                  <span className="text-white font-bold text-3xl">E</span>
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Esports Coordinator</h3>
-                <p className="text-gray-300 mb-6 text-lg leading-relaxed">
-                  Organizes competitive teams, manages tournament entries, and coordinates with esports leagues.
-                </p>
-                <div className="text-sm text-gray-400">
-                  Contact to join competitive teams
-                </div>
-              </div>
-
-              <div className="bg-gray-900 rounded-2xl shadow-2xl p-10 text-center border border-gray-800 hover:border-yellow-500 transition-all duration-300">
-                <div className="w-28 h-28 bg-gradient-to-r from-yellow-500 to-red-600 rounded-full mx-auto mb-6 flex items-center justify-center">
-                  <span className="text-white font-bold text-3xl">L</span>
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-4">LAN Coordinator</h3>
-                <p className="text-gray-300 mb-6 text-lg leading-relaxed">
-                  Plans and organizes LAN parties, manages equipment, and coordinates with venues.
-                </p>
-                <div className="text-sm text-gray-400">
-                  Contact about LAN parties and events
-                </div>
-              </div>
-
-              <div className="bg-gray-900 rounded-2xl shadow-2xl p-10 text-center border border-gray-800 hover:border-indigo-500 transition-all duration-300">
-                <div className="w-28 h-28 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full mx-auto mb-6 flex items-center justify-center">
-                  <span className="text-white font-bold text-3xl">S</span>
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Social Secretary</h3>
-                <p className="text-gray-300 mb-6 text-lg leading-relaxed">
-                  Organizes weekly social events, casual gaming sessions, and community building activities.
-                </p>
-                <div className="text-sm text-gray-400">
-                  Contact about social events
-                </div>
-              </div>
+              ))}
             </div>
 
             <div className="bg-gray-900 rounded-2xl p-12 text-center border border-gray-800">
@@ -141,7 +260,7 @@ export default function Committee() {
                   Join Our Discord
                 </a>
                 <a
-                  href="https://yusu.org/activities/view/fragsoc"
+                  href="https://yorksu.org/activities/view/fragsoc"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-green-600 text-white font-semibold py-4 px-10 rounded-full hover:bg-green-700 transition-all duration-300 text-lg shadow-lg hover:shadow-green-600/25"

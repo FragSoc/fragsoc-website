@@ -1,11 +1,12 @@
 import Image from 'next/image';
+import { URLS } from '@/constants';
 import Link from 'next/link';
 
 export default function MainSections() {
   return (
-    <div className="bg-black text-white py-20">
+    <div className="bg-black text-white py-3">
       {/* Welcome Section */}
-      <section className="container mx-auto px-4 mb-32">
+      <section className="container mx-auto px-4 mb-20">
         <div className="flex flex-col lg:flex-row items-center gap-16">
           <div className="lg:w-2/3">
             <h2 className="text-5xl font-bold text-white mb-8">Welcome to FragSoc!</h2>
@@ -41,12 +42,12 @@ export default function MainSections() {
       </section>
 
       {/* Three Column Sections */}
-      <section className="py-20">
+      <section className="pb-12">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-12">
             {/* Roses Section */}
-            <div className="bg-gray-900 rounded-2xl p-10 text-center border border-gray-800 hover:border-red-500 transition-all duration-300 flex flex-col h-full">
-              <h3 className="text-3xl font-bold text-red-400 mb-8">Roses</h3>
+            <div className="bg-gray-900 rounded-2xl p-10 text-center border border-gray-800 hover:border-gray-500 transition-all duration-300 flex flex-col h-full">
+              <h3 className="text-3xl font-bold text-gray-400 mb-8">Roses</h3>
               <Image
                 src="/roses.png"
                 alt="Roses Tournament"
@@ -58,19 +59,19 @@ export default function MainSections() {
                 Every year, we help the University of York to organise the esports events in
                 Roses, an annual sports tournament against Lancaster University.
               </p>
-              <Link
-                href="https://roseslive.co.uk/"
+                <Link
+                href={URLS.ROSES_LIVE}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-teal-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-teal-700 transition-all duration-300 shadow-lg hover:shadow-teal-600/25 mt-auto"
-              >
+                className="inline-block bg-gray-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-gray-700 transition-all duration-300 shadow-lg hover:shadow-gray-600/25 mt-auto"
+                >
                 Visit Roses Website
-              </Link>
+                </Link>
             </div>
 
             {/* Frag Smash Section */}
-            <div className="bg-gray-900 rounded-2xl p-10 text-center border border-gray-800 hover:border-green-500 transition-all duration-300 flex flex-col h-full">
-              <h3 className="text-3xl font-bold text-green-400 mb-8">Frag Smash</h3>
+            <div className="bg-gray-900 rounded-2xl p-10 text-center border border-gray-800 hover:border-red-500 transition-all duration-300 flex flex-col h-full">
+              <h3 className="text-3xl font-bold text-red-400 mb-8">Frag Smash</h3>
               <Image
                 src="/fragsmash.png"
                 alt="Frag Smash Tournament"
@@ -83,10 +84,10 @@ export default function MainSections() {
                 players competing from all over the UK.
               </p>
               <Link
-                href="https://discord.gg/A9BWHvHFVM"
+                href={URLS.DISCORD.FRAGSMASH}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-purple-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-purple-700 transition-all duration-300 shadow-lg hover:shadow-purple-600/25 mt-auto"
+                className="inline-block bg-red-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-red-700 transition-all duration-300 shadow-lg hover:shadow-red-600/25 mt-auto"
               >
                 Join the FragSmash Discord
               </Link>
