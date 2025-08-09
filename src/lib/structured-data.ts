@@ -48,6 +48,5 @@ export const websiteSchema = {
       "@type": "EntryPoint",
       "urlTemplate": `${process.env.NEXT_PUBLIC_BASE_URL || "https://fragsoc.com"}?q={search_term_string}`
     },
-    "query-input": "required name=search_term_string"
   }
 }
