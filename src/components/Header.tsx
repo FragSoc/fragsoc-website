@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { URLS, TEXT } from '@/constants';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -131,12 +132,12 @@ export default function Header() {
           </button>
           
           <Link
-            href="https://yorksu.org/activities/view/fragsoc"
+            href={URLS.YORKSU_FRAGSOC}
             target="_blank"
             rel="noopener noreferrer"
             className="hidden md:inline-block bg-indigo-600 text-white px-8 py-3 rounded-full hover:bg-indigo-700 transition-colors font-semibold"
           >
-            Membership
+            {TEXT.MEMBERSHIP_GET}
           </Link>
         </div>
 
@@ -239,13 +240,13 @@ export default function Header() {
                 Contact
               </Link>
               <Link
-                href="https://yorksu.org/activities/view/fragsoc"
+                href={URLS.YORKSU_FRAGSOC}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-indigo-600 text-white px-6 py-3 rounded-full hover:bg-indigo-700 transition-colors font-semibold text-center mt-4"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Membership
+                {TEXT.MEMBERSHIP_GET}
               </Link>
             </div>
           </nav>

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { URLS } from '@/constants';
 import Link from 'next/link';
 
 export default function MainSections() {
@@ -59,7 +60,7 @@ export default function MainSections() {
                 Roses, an annual sports tournament against Lancaster University.
               </p>
                 <Link
-                href="https://roseslive.co.uk/"
+                href={URLS.ROSES_LIVE}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-gray-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-gray-700 transition-all duration-300 shadow-lg hover:shadow-gray-600/25 mt-auto"
@@ -83,7 +84,7 @@ export default function MainSections() {
                 players competing from all over the UK.
               </p>
               <Link
-                href="https://discord.gg/A9BWHvHFVM"
+                href={URLS.DISCORD.FRAGSMASH}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-red-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-red-700 transition-all duration-300 shadow-lg hover:shadow-red-600/25 mt-auto"

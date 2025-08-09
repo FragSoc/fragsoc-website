@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { URLS } from '@/constants';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -10,7 +11,7 @@ const slides = [
     title: "Join us on Discord!",
     subtitle: "Make friends, participate in online events, and get society announcements in our discord server!",
     buttonText: "Join the Discord",
-    buttonLink: "https://discord.gg/vaTV73U5Hz",
+    buttonLink: URLS.DISCORD.MAIN,
     backgroundImage: "/bannerImages/headphoneBanner.jpg",
     buttonColor: "bg-indigo-600 hover:bg-indigo-700"
   },
@@ -19,7 +20,7 @@ const slides = [
     title: "Merch is now Available!",
     subtitle: "Our raven.gg store is now back online. Check out our FragSoc & UoY Esports clothing by clicking the button below!",
     buttonText: "View Collection",
-    buttonLink: "https://raven.gg/stores/fragsoc-uoy-esports/",
+    buttonLink: URLS.MERCHANDISE,
     backgroundImage: "/bannerImages/MerchBanner.jpg",
     buttonColor: "bg-green-600 hover:bg-green-700"
   },

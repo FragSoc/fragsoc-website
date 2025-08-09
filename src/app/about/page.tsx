@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
+import { URLS, TEXT } from '@/constants';
 
 export default function About() {
   return (
@@ -54,7 +55,7 @@ export default function About() {
                     Once you arrive, our committee will PAT test any equipment you have and you are welcome to set up using the network ports and power sockets available! You will also be required to sign-in to our dedicated LAN channels in the FragSoc Discord to stay up to date on scheduled events and announcements.
                   </p>
                   <a
-                    href="https://discord.gg/vaTV73U5Hz"
+                    href={URLS.DISCORD.MAIN}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 text-lg"

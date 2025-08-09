@@ -56,3 +56,5 @@ jobs:
         cache-from: type=gha
         cache-to: type=gha,mode=max
         platforms: linux/amd64,linux/arm64
+        build-args: |
+          NEXT_PUBLIC_FORMSPREE_FORM_ID=${{ secrets.FORMSPREE_FORM_ID }}

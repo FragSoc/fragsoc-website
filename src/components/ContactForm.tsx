@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { URLS, FORM_CONFIG } from '@/constants';
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -16,7 +17,13 @@ export default function ContactForm() {
     const formData = new FormData(form);
 
     try {
-      const response = await fetch('https://formspree.io/f/xpwlkawk', {
+      const formspreeFormId = process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID;
+      if (!formspreeFormId) {
+        throw new Error('Formspree form ID is not configured.');
+      }
+      
+      const formspreeEndpoint = `${URLS.FORMSPREE.BASE}/${formspreeFormId}`;
+      const response = await fetch(formspreeEndpoint, {
         method: 'POST',
         body: formData,
         headers: {
@@ -66,9 +73,9 @@ export default function ContactForm() {
     <div className="bg-gray-900 rounded-2xl p-8 border border-gray-800">
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Hidden fields for Formspree */}
-        <input type="hidden" name="_subject" value="New FragSoc Contact Form Submission" />
-        <input type="hidden" name="_next" value="https://fragsoc.co.uk/contact?success=true" />
-        <input type="hidden" name="_cc" value="fragsoc@yorksu.org" />
+        <input type="hidden" name="_subject" value={FORM_CONFIG.CONTACT_SUBJECT} />
+        <input type="hidden" name="_next" value={FORM_CONFIG.SUCCESS_REDIRECT} />
+        <input type="hidden" name="_cc" value={FORM_CONFIG.CC_EMAIL} />
         
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">

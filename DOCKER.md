@@ -2,13 +2,37 @@
 
 ## Prerequisites
 
-1. **Docker Registry Secrets**: Add these secrets to your GitHub repository:
-   - `DOCKER_USERNAME`: Your private registry username
-   - `DOCKER_PASSWORD`: Your private registry password/token
+1. **Self-hosted Runner**: Set up a self-hosted GitHub Actions runner on your production server.
 
-2. **Self-hosted Runner**: Set up a self-hosted GitHub Actions runner on your production server.
+2. **Environment Variables**: For local development, copy `.env.example` to `.env.local` and fill in your values.
 
-3. **Update Registry URL**: Replace `your-private-registry.com` in the workflow files with your actual private registry URL.
+## GitHub Secrets Setup
+
+Add these secrets to your GitHub repository (**Settings** → **Secrets and variables** → **Actions**):
+
+### Docker Registry Secrets
+- **`DOCKER_REGISTRY`**: Your private registry URL
+  - Examples: `registry.digitalocean.com`, `ghcr.io`, `your-domain.com:5000`
+  - **Required**: Used in both build and deploy workflows
+- **`DOCKER_USERNAME`**: Your private registry username
+  - The username for authenticating with your Docker registry
+- **`DOCKER_PASSWORD`**: Your private registry password/token
+  - API token or password for registry authentication
+  - For security, use an API token rather than your account password when possible
+
+### Application Secrets
+- **`FORMSPREE_FORM_ID`**: Your Formspree form ID (e.g., `xpwlkawk`)
+  - Get this from your Formspree.io dashboard after creating a form
+
+### How to Add Secrets
+1. Navigate to your GitHub repository
+2. Click **Settings** (repository settings, not your account)
+3. In the left sidebar, click **Secrets and variables** → **Actions**
+4. Click **New repository secret**
+5. Enter the secret name and value
+6. Click **Add secret**
+
+**⚠️ Important**: All these secrets are required for the workflows to function properly.
 
 ## Workflow Overview
 
@@ -107,3 +131,20 @@ docker image prune -f
 ```bash
 docker exec -it fragsoc-website-prod sh
 ```
+
+## Quick Reference
+
+### Required GitHub Secrets Checklist
+- ✅ `DOCKER_REGISTRY` - Your private registry URL
+- ✅ `DOCKER_USERNAME` - Registry username  
+- ✅ `DOCKER_PASSWORD` - Registry password/token
+- ✅ `FORMSPREE_FORM_ID` - Formspree form ID
+
+### Common Registry Examples
+| Provider | Registry URL | Notes |
+|----------|--------------|-------|
+| Docker Hub | `docker.io` or leave empty | Default registry |
+| GitHub Container Registry | `ghcr.io` | Free for public repos |
+| DigitalOcean | `registry.digitalocean.com` | Managed registry service |
+| AWS ECR | `<account-id>.dkr.ecr.<region>.amazonaws.com` | Replace account-id and region |
+| Self-hosted | `your-domain.com:5000` | Custom registry setup |

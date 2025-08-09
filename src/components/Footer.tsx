@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { URLS } from '@/constants';
 
 export default function Footer() {
   return (
@@ -8,7 +9,7 @@ export default function Footer() {
           <h3 className="text-2xl font-bold mb-8">Follow us on social media</h3>
           <div className="flex justify-center flex-wrap gap-8">
             <Link
-              href="https://www.facebook.com/groups/FragSoc"
+              href={URLS.SOCIAL.FACEBOOK}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-gray-400 hover:text-blue-500 transition-colors text-lg font-medium"
@@ -19,7 +20,7 @@ export default function Footer() {
               Facebook
             </Link>
             <Link
-              href="https://twitter.com/FragSoc"
+              href={URLS.SOCIAL.TWITTER}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-gray-400 hover:text-blue-400 transition-colors text-lg font-medium"
@@ -30,7 +31,7 @@ export default function Footer() {
               Twitter
             </Link>
             <Link
-              href="https://discord.gg/vaTV73U5Hz"
+              href={URLS.DISCORD.MAIN}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-gray-400 hover:text-indigo-400 transition-colors text-lg font-medium"
@@ -41,7 +42,7 @@ export default function Footer() {
               Discord
             </Link>
             <Link
-              href="https://www.instagram.com/Fragsoc/?hl=en-gb"
+              href={URLS.SOCIAL.INSTAGRAM}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-gray-400 hover:text-pink-400 transition-colors text-lg font-medium"
@@ -52,7 +53,7 @@ export default function Footer() {
               Instagram
             </Link>
             <Link
-              href="https://www.twitch.tv/fragsoc"
+              href={URLS.SOCIAL.TWITCH}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-gray-400 hover:text-purple-400 transition-colors text-lg font-medium"
@@ -63,7 +64,7 @@ export default function Footer() {
               Twitch
             </Link>
             <Link
-              href="https://www.youtube.com/user/Fragsoc/videos"
+              href={URLS.SOCIAL.YOUTUBE}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-gray-400 hover:text-red-400 transition-colors text-lg font-medium"
@@ -74,7 +75,7 @@ export default function Footer() {
               YouTube
             </Link>
             <Link
-              href="https://www.reddit.com/user/FragSoc"
+              href={URLS.SOCIAL.REDDIT}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-gray-400 hover:text-orange-400 transition-colors text-lg font-medium"

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
+import { URLS, EMAILS, TEXT } from '@/constants';
 
 export default function ContactPage() {
   return (
@@ -37,7 +38,7 @@ export default function ContactPage() {
                 Join our Discord server for real-time chat, announcements, and community discussions.
               </p>
               <Link
-                href="https://discord.gg/fragsoc"
+                href={URLS.DISCORD.FRAGSOC_GENERAL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-indigo-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-indigo-700 transition-all duration-300"
@@ -58,7 +59,7 @@ export default function ContactPage() {
                 Send us an email for official inquiries, partnerships, or detailed questions.
               </p>
               <Link
-                href="mailto:fragsoc@yorksu.org"
+                href={`mailto:${EMAILS.FRAGSOC}`}
                 className="inline-block bg-green-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-green-700 transition-all duration-300"
               >
                 Send Email
@@ -77,12 +78,12 @@ export default function ContactPage() {
                 Visit our official YorkSU page for membership information and society updates.
               </p>
               <Link
-                href="https://yorksu.org/activities/view/fragsoc"
+                href={URLS.YORKSU_FRAGSOC}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-yellow-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-yellow-700 transition-all duration-300"
               >
-                Visit YorkSU Page
+                {TEXT.VISIT_YORKSU}
               </Link>
             </div>
           </div>
