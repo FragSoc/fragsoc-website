@@ -4,12 +4,14 @@ on:
   push:
     branches:
       - main
+      - builder  # Add builder branch
   workflow_run:
     workflows: ["Build and Push Docker Image"]
     types:
       - completed
     branches:
       - main
+      - builder  # Add builder branch
 
 env:
   REGISTRY: docker.io  # Docker Hub
@@ -39,7 +41,7 @@ jobs:
 
     - name: Pull latest image
       run: |
-        docker pull ${{ secrets.DOCKER_USERNAME }}/fragsoc-website:latest
+        docker pull ${{ secrets.DOCKER_USERNAME }}/fragsoc-website:builder
 
     - name: Deploy new container
       run: |
@@ -47,7 +49,7 @@ jobs:
           --name ${{ env.CONTAINER_NAME }} \
           --restart unless-stopped \
           -p 3000:3000 \
-          ${{ secrets.DOCKER_USERNAME }}/fragsoc-website:latest
+          ${{ secrets.DOCKER_USERNAME }}/fragsoc-website:builder
 
     - name: Verify deployment
       run: |
