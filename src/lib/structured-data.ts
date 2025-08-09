@@ -5,7 +5,7 @@ export const organizationSchema = {
   "name": "FragSoc - University of York Gaming Society",
   "alternateName": "FragSoc",
   "description": "FragSoc is the University of York's Video Gaming and LAN society. We run LAN parties, participate in esports tournaments, and host weekly social events.",
-  "url": process.env.NEXT_PUBLIC_BASE_URL || "https://fragsoc.com",
+  "url": process.env.NEXT_PUBLIC_BASE_URL || "https://fragsoc.co.uk",
   "logo": `${process.env.NEXT_PUBLIC_BASE_URL || "https://fragsoc.com"}/logo.png`,
   "foundingDate": "2010",
   "address": {
