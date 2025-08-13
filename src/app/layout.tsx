@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://fragsoc.co.uk';
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://fragsoc.co.uk'),
+  metadataBase: new URL(baseUrl),
   title: {
     default: "FragSoc - University of York's Gaming and Esports Society",
     template: "%s | FragSoc - University of York"
@@ -58,7 +59,7 @@ export const metadata: Metadata = {
     siteName: 'FragSoc',
     images: [
       {
-        url: '/logo.png',
+        url: `${baseUrl}/logo-meta.png`,
         width: 1200,
         height: 630,
         alt: 'FragSoc - University of York Gaming Society',
@@ -69,8 +70,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "FragSoc - University of York's Gaming and Esports Society",
     description: "FragSoc is the University of York's Video Gaming and LAN society. Join us for LAN parties, esports tournaments, and weekly social gaming events.",
-    images: ['/logo.png'],
-    creator: '@FragSocYork',
+    images: [`${baseUrl}/logo-meta.png`],
+    creator: '@FragSoc',
   },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
