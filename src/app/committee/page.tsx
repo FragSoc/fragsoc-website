@@ -25,7 +25,7 @@ const committeeRoles = [
     shadowColor: "shadow-purple-600/25",
     members: [
       {
-        name: "Charlie Greasby",
+        name: "Charlie 'SleepyBoi' Greasby",
         image: "/logo.png" // Replace with actual photo when available
       }
     ]
@@ -38,7 +38,7 @@ const committeeRoles = [
     shadowColor: "shadow-green-600/25",
     members: [
       {
-        name: "Hamish Parker",
+        name: "Hamish 'm0mentous' Parker",
         image: "/logo.png" // Replace with actual photo when available
       }
     ]
@@ -64,11 +64,11 @@ const committeeRoles = [
     shadowColor: "shadow-red-600/25",
     members: [
       {
-        name: "James Sutton",
+        name: "James 'Cavecrush' Sutton",
         image: "/logo.png" // Replace with actual photo when available
       },
       {
-        name: "Aryaman Marathe",
+        name: "Aryaman 'Waddle' Marathe",
         image: "/logo.png" // Replace with actual photo when available
       }
     ]
@@ -81,15 +81,15 @@ const committeeRoles = [
     shadowColor: "shadow-yellow-600/25",
     members: [
       {
-        name: "Charlie Greasby",
+        name: "Charlie 'SleepyBoi' Greasby",
         image: "/logo.png" // Replace with actual photo when available
       },
       {
-        name: "Hamish Parker",
+        name: "Hamish 'm0mentous' Parker",
         image: "/logo.png" // Replace with actual photo when available
       },
       {
-        name: "James Orwin",
+        name: "James 'Waterman' Orwin",
         image: "/logo.png" // Replace with actual photo when available
       }
     ]
@@ -102,11 +102,11 @@ const committeeRoles = [
     shadowColor: "shadow-orange-600/25",
     members: [
       {
-        name: "Charlie Greasby",
+        name: "Charlie 'SleepyBoi' Greasby",
         image: "/logo.png" // Replace with actual photo when available
       },
       {
-        name: "Phillip Hatt",
+        name: "Phillip 'Phoenix' Hatt",
         image: "/logo.png" // Replace with actual photo when available
       }
     ]
@@ -119,7 +119,7 @@ const committeeRoles = [
     shadowColor: "shadow-cyan-600/25",
     members: [
       {
-        name: "Phillip Hatt",
+        name: "Phillip 'Phoenix' Hatt",
         image: "/logo.png" // Replace with actual photo when available
       }
     ]
@@ -132,11 +132,11 @@ const committeeRoles = [
     shadowColor: "shadow-gray-600/25",
     members: [
       {
-        name: "Ren Herring",
+        name: "Ren 'hitime' Herring",
         image: "/logo.png" // Replace with actual photo when available
       },
       {
-        name: "Evelyn Gravett",
+        name: "Evelyn 'VulpesNova' Gravett",
         image: "/logo.png" // Replace with actual photo when available
       }
     ]
@@ -149,11 +149,11 @@ const committeeRoles = [
     shadowColor: "shadow-pink-600/25",
     members: [
       {
-        name: "Ren Herring",
+        name: "Ren 'hitime' Herring",
         image: "/logo.png" // Replace with actual photo when available
       },
       {
-        name: "Evelyn Gravett",
+        name: "Evelyn 'VulpesNova' Gravett",
         image: "/logo.png" // Replace with actual photo when available
       }
     ]
@@ -166,7 +166,7 @@ const committeeRoles = [
     shadowColor: "shadow-teal-600/25",
     members: [
       {
-        name: "Dorothy Lo",
+        name: "Dorothy 'doro' Lo",
         image: "/logo.png" // Replace with actual photo when available
       }
     ]
@@ -215,9 +215,9 @@ export default function Committee() {
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mb-16">
+            <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-10 mb-16">
               {committeeRoles.map((role, index) => (
-                <div key={index} className={`bg-gray-900 rounded-2xl shadow-2xl p-10 text-center border border-gray-800 ${role.hoverBorder} hover:shadow-xl hover:scale-105 transition-all duration-300`}>
+                <div key={index} className={`bg-gray-900 rounded-2xl shadow-2xl p-10 md:p-12 lg:p-16 text-center border border-gray-800 ${role.hoverBorder} hover:shadow-xl hover:scale-105 transition-all duration-300`}>
                   <div className={`w-28 h-28 bg-gradient-to-r ${role.color} rounded-full mx-auto mb-6 flex items-center justify-center text-white font-bold text-2xl shadow-lg`}>
                     {role.role.split(' ').map(word => word[0]).join('').slice(0, 2)}
                   </div>
@@ -232,7 +232,7 @@ export default function Committee() {
                           height={40}
                           className="w-10 h-10 rounded-full object-cover border-2 border-gray-600 mr-3"
                         />
-                        <span className="text-lg font-semibold text-gray-300">{member.name}</span>
+                        <span className="text-lg font-semibold text-gray-300 break-words text-center leading-tight max-w-[30rem]">{member.name}</span>
                       </div>
                     ))}
                   </div>
