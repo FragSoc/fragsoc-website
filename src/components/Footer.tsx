@@ -3,9 +3,9 @@ import { URLS } from '@/constants';
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white py-16 border-t border-gray-800">
+    <footer className="bg-black text-white py-5 border-t border-gray-800">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <div className="text-center mb-4">
           <h3 className="text-2xl font-bold mb-8">Follow us on social media</h3>
           <div className="flex justify-center flex-wrap gap-8">
             <Link
@@ -85,6 +85,26 @@ export default function Footer() {
               </svg>
               Reddit
             </Link>
+          </div>
+        
+          <h3 className="text-2xl font-bold mb-4 mt-4">Associations</h3>
+          <p className="text-gray-400 text-lg">We are a student society at the University of York. We are therefore bound by the <a href="https://yorksu.org/documents/term-and-conditions" className="text-blue-500 hover:underline">Terms & Conditions</a> of the University of York Students Union.</p>
+          
+          <div className="flex justify-center mt-5">
+            <picture>
+              <source
+                srcSet="York_SU_Full_logo_white_cropped.svg"
+                media="(prefers-color-scheme: dark)"
+              />
+              <img
+                src="York_SU_Full_logo_black_cropped.svg"
+                alt="University of York Students' Union Logo"
+                className="h-15 w-auto"
+                width={128}
+                height={64}
+                loading="lazy"
+              />
+            </picture>
           </div>
         </div>
         
