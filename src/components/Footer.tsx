@@ -91,20 +91,14 @@ export default function Footer() {
           <p className="text-gray-400 text-lg">We are a student society at the University of York. We are therefore bound by the <a href="https://yorksu.org/documents/term-and-conditions" className="text-blue-500 hover:underline">Terms & Conditions</a> of the University of York Students Union.</p>
           
           <div className="flex justify-center mt-5">
-            <picture>
-              <source
-                srcSet="York_SU_Full_logo_white_cropped.svg"
-                media="(prefers-color-scheme: dark)"
-              />
               <img
-                src="York_SU_Full_logo_black_cropped.svg"
+                src="York_SU_Full_logo_white_cropped.svg"
                 alt="University of York Students' Union Logo"
                 className="h-15 w-auto"
                 width={128}
                 height={64}
                 loading="lazy"
               />
-            </picture>
           </div>
         </div>
         
