@@ -34,4 +34,4 @@ This is a Next.js 15 project with the following technologies:
 
 ## Development Workflow
 1. Run the development server with `npm run dev`
-2. Open [http://localhost:3000](http://localhost:3000)
+2. Open [http://localhost:3000](http://localhost:3000) 
