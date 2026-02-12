@@ -104,7 +104,7 @@ export default function Footer() {
         
         <div className="border-t border-gray-800 pt-8 text-center">
           <p className="text-gray-400 text-lg">Forged By Ren Herring and Fragsoc Infrastructure</p>
-          <p className="text-gray-400 text-lg">© 2025 FragSoc</p>
+          <p className="text-gray-400 text-lg">© 2026 FragSoc</p>
         </div>
       </div>
     </footer>
