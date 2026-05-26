@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package.json package-lock.json* ./
 RUN npm ci
 
-# 3. Builder (Compiles Next.js to the /app/out folder)
+# 3. Builder
 FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
@@ -21,10 +21,10 @@ ENV NEXT_PUBLIC_BASE_URL=${NEXT_PUBLIC_BASE_URL}
 
 ENV NEXT_TELEMETRY_DISABLED 1
 
-# This will generate the "out" directory
+# Generates the static "out" directory
 RUN NODE_OPTIONS='--max-old-space-size=4096' npm run build
 
-# 4. Runner (Uses Nginx inside the container to mimic the dynamic server)
+# 4. Runner (Nginx Container mimicking the old server)
 FROM nginx:alpine AS runner
 WORKDIR /usr/share/nginx/html
 
@@ -34,9 +34,8 @@ RUN rm -rf ./*
 # Copy the static Next.js export into the Nginx container
 COPY --from=builder /app/out ./
 
-# Adjust Nginx to listen on port 3000 instead of 80 to match your old system
-RUN sed -i 's/listen\.+80;/listen 3000;/g' /etc/nginx/conf.d/default.conf || \
-    echo -e "server {\n    listen 3000;\n    location / {\n        root /usr/share/nginx/html;\n        try_files \$uri \$uri/ \$uri.html =404;\n    }\n}" > /etc/nginx/conf.d/default.conf
+# Copy our dedicated Nginx config over the default config
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 3000
 
