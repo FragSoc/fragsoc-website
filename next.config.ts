@@ -21,6 +21,10 @@ const nextConfig: NextConfig = {
   
   // Image optimization
   images: {
+    // For static `next export` builds, disable runtime image optimization so
+    // `<Image />` falls back to plain `<img>` URLs and does not require
+    // the `/_next/image` optimization route.
+    unoptimized: true,
     formats: ['image/webp', 'image/avif'],
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
