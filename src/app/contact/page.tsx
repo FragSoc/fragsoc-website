@@ -68,10 +68,15 @@ export default function ContactPage() {
 
             {/* YorkSU */}
             <div className="bg-gray-900 rounded-2xl p-8 text-center border border-gray-800 hover:border-yellow-500 transition-all duration-300">
-              <div className="w-16 h-16 bg-yellow-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-4m-5 0H9m0 0H5m0 0v-4a2 2 0 011-1h1m0 0V9a2 2 0 012-2h2a2 2 0 012 2v8.5M9 21V9a2 2 0 012-2h2a2 2 0 012 2v12" />
-                </svg>
+              <div className="mb-6 flex justify-center">
+                <Image
+                  src="/York_SU_Full_logo_white_cropped.svg"
+                  alt="YorkSU logo"
+                  width={560}
+                  height={222}
+                  className="h-16 w-auto"
+                  priority
+                />
               </div>
               <h3 className="text-2xl font-bold text-yellow-400 mb-4">YorkSU</h3>
               <p className="text-gray-300 mb-6">
