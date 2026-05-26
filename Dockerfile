@@ -1,61 +1,43 @@
-# Use the official Node.js 18 image as base
+# 1. Base Image
 FROM node:18-alpine AS base
 
-# Install dependencies only when needed
+# 2. Dependencies
 FROM base AS deps
-# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
-
-# Install dependencies based on the preferred package manager
 COPY package.json package-lock.json* ./
 RUN npm ci
 
-# Rebuild the source code only when needed
+# 3. Builder (Compiles Next.js to the /app/out folder)
 FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Accept build arguments for environment variables
 ARG NEXT_PUBLIC_FORMSPREE_FORM_ID
 ENV NEXT_PUBLIC_FORMSPREE_FORM_ID=${NEXT_PUBLIC_FORMSPREE_FORM_ID}
+ARG NEXT_PUBLIC_BASE_URL
+ENV NEXT_PUBLIC_BASE_URL=${NEXT_PUBLIC_BASE_URL}
 
-# Next.js collects completely anonymous telemetry data about general usage.
-# Learn more here: https://nextjs.org/telemetry
-# Uncomment the following line in case you want to disable telemetry during the build.
 ENV NEXT_TELEMETRY_DISABLED 1
 
-# Build the application (skip linting during Docker build)
+# This will generate the "out" directory
 RUN NODE_OPTIONS='--max-old-space-size=4096' npm run build
 
-# Production image, copy all the files and run next
-FROM base AS runner
-WORKDIR /app
+# 4. Runner (Uses Nginx inside the container to mimic the dynamic server)
+FROM nginx:alpine AS runner
+WORKDIR /usr/share/nginx/html
 
-ENV NODE_ENV=production
-# Disable Next.js telemetry during runtime.
-ENV NEXT_TELEMETRY_DISABLED=1
+# Clear default Nginx static files
+RUN rm -rf ./*
 
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
+# Copy the static Next.js export into the Nginx container
+COPY --from=builder /app/out ./
 
-COPY --from=builder /app/public ./public
-
-# Set the correct permission for prerender cache
-RUN mkdir .next
-RUN chown nextjs:nodejs .next
-
-# Automatically leverage output traces to reduce image size
-# https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-
-USER nextjs
+# Adjust Nginx to listen on port 3000 instead of 80 to match your old system
+RUN sed -i 's/listen\.+80;/listen 3000;/g' /etc/nginx/conf.d/default.conf || \
+    echo -e "server {\n    listen 3000;\n    location / {\n        root /usr/share/nginx/html;\n        try_files \$uri \$uri/ \$uri.html =404;\n    }\n}" > /etc/nginx/conf.d/default.conf
 
 EXPOSE 3000
 
-ENV PORT=3000
-ENV HOSTNAME="0.0.0.0"
-
-CMD ["node", "server.js"]
+CMD ["nginx", "-g", "daemon off;"]
